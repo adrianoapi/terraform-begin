@@ -85,6 +85,7 @@ resource "azurerm_network_interface_security_group_association" "nisga-aula-fs" 
     network_security_group_id = azurerm_network_security_group.nsg-aula-fs.id
 }
 
+# Mysql
 resource "azurerm_mysql_server" "ms-aula-fs" {
   name                = "ms-aula-fs"
   location            = azurerm_resource_group.rg-aula-fs.location
@@ -106,6 +107,7 @@ resource "azurerm_mysql_server" "ms-aula-fs" {
   ssl_minimal_tls_version_enforced  = "TLS1_2"
 }
 
+# Mysql firewall open to 3306
 resource "azurerm_mysql_firewall_rule" "mfr-aula-fs" {
   name                = "mfr-aula-fs"
   resource_group_name = azurerm_resource_group.rg-aula-fs.name
